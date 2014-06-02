@@ -50,7 +50,21 @@ var app = {
   },
   onDeviceReady: function() {
     console.log("onDeviceReady invoked");
+
+    $(document).on('click', '#toogle_log', function(event){
+      event.preventDefault();
+      var div = document.getElementById('log');
+      if (div.innerHTML.length > 0){
+        div.innerHTML = "";
+      } else {
+        div.innerHTML = div.innerHTML + app.log.toString();
+      }
+    });
+
+
     app.deferred_chaining();
+
+
 //    app.collectGeoPosition();
   },
   collectGeoPosition: function(){
